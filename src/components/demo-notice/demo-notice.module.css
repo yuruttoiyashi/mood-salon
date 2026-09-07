@@ -1,0 +1,21 @@
+.notice {
+  padding: 18px var(--page-gutter);
+  border-top: 1px solid rgba(23, 23, 23, 0.12);
+  border-bottom: 1px solid rgba(23, 23, 23, 0.12);
+  background: var(--color-soft-gray);
+  text-align: center;
+}
+
+.label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.message {
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 1.7;
+}

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Noto_Sans_JP } from "next/font/google";
 import { SiteHeader } from "@/components/site-header/SiteHeader";
 import "./globals.css";
+import { DemoNotice } from "@/components/demo-notice/DemoNotice";
+import { SiteFooter } from "@/components/site-footer/SiteFooter";
 
 const sans = Noto_Sans_JP({
   variable: "--font-sans",
@@ -34,6 +36,9 @@ export default function RootLayout({
         <SiteHeader />
 
         <main id="main-content">{children}</main>
+
+<DemoNotice context="site" />
+<SiteFooter />
       </body>
     </html>
   );
