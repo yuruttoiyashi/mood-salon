@@ -161,7 +161,7 @@ export type Coupon = {
 };
 ```
 
-Coupons do not execute real reservations or payments. Links may lead to the existing fictional `/reserve` route or a demo notice.
+Coupons do not execute real reservations or payments. Coupon CTAs may point to `/reserve`, but implementation of the reservation flow remains outside Phase 2; tests in this phase verify the destination only, not a reservation transaction.
 
 ## Routes
 
@@ -172,7 +172,7 @@ Purpose: present service categories, representative pricing, and treatment conce
 Structure:
 
 1. Editorial page hero.
-2. Category navigation or visual index.
+2. Anchor navigation linking to the four category section IDs.
 3. Category sections rendered from `menus.ts`.
 4. Pricing/disclaimer note.
 5. Relevant coupon CTA.
@@ -186,7 +186,7 @@ Structure:
 1. Editorial page hero.
 2. Coupon card grid/list.
 3. Conditions/notes.
-4. Demo reservation CTA.
+4. Demo reservation CTA pointing to `/reserve` without submitting data in Phase 2.
 5. Fictional-site notice remains visible through the shared layout.
 
 ### `/salon`
@@ -210,7 +210,7 @@ Structure:
 3. Interior/gallery imagery.
 4. Access, hours, and fictional address.
 5. Recommended menu/coupon content derived from typed data.
-6. Reserve CTA.
+6. Reserve CTA pointing to `/reserve`.
 
 Unknown salon slugs must resolve to the app's 404 experience rather than rendering empty content.
 
