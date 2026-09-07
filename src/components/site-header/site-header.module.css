@@ -1,0 +1,132 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  border-bottom: 1px solid rgba(23, 23, 23, 0.08);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+}
+
+.inner {
+  width: 100%;
+  max-width: var(--content-max);
+  height: 68px;
+  margin: 0 auto;
+  padding: 0 var(--page-gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  position: relative;
+  z-index: 1002;
+  font-family: var(--font-serif), serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+}
+
+.desktopNav {
+  display: none;
+}
+
+.mobileNavigation {
+  display: block;
+}
+
+.menuButton {
+  position: relative;
+  z-index: 1002;
+  min-width: 48px;
+  min-height: 48px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-charcoal);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  cursor: pointer;
+}
+
+.mobilePanel {
+  position: fixed;
+  inset: 0;
+  z-index: 1001;
+  min-height: 100dvh;
+  padding: 110px var(--page-gutter) 40px;
+  background: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mobileLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mobileLink {
+  font-family: var(--font-serif), serif;
+  font-size: clamp(2.8rem, 14vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.mobileMeta {
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-silver);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+}
+
+@media (min-width: 900px) {
+  .inner {
+    height: 76px;
+  }
+
+  .logo {
+    font-size: 2rem;
+  }
+
+  .desktopNav {
+    display: flex;
+    align-items: center;
+    gap: clamp(20px, 2.5vw, 42px);
+  }
+
+  .desktopNav a {
+    position: relative;
+    padding: 12px 0;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+  }
+
+  .desktopNav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 6px;
+    width: 100%;
+    height: 1px;
+    background: var(--color-charcoal);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 220ms ease;
+  }
+
+  .desktopNav a:hover::after,
+  .desktopNav a:focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  .mobileNavigation {
+    display: none;
+  }
+}
