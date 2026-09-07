@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Noto_Sans_JP } from "next/font/google";
+import { SiteHeader } from "@/components/site-header/SiteHeader";
 import "./globals.css";
 
 const sans = Noto_Sans_JP({
@@ -26,7 +27,13 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={`${sans.variable} ${serif.variable}`}>
-        {children}
+        <a className="skip-link" href="#main-content">
+          本文へ移動
+        </a>
+
+        <SiteHeader />
+
+        <main id="main-content">{children}</main>
       </body>
     </html>
   );

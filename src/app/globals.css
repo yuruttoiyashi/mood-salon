@@ -69,3 +69,17 @@ img {
     transition-duration: 0.01ms !important;
   }
 }
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 9999;
+  padding: 10px 14px;
+  background: var(--color-black);
+  color: var(--color-white);
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
