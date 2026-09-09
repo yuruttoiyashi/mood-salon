@@ -58,6 +58,39 @@ export default async function SalonDetailPage({
         </p>
       </section>
 
+      <section
+        className={styles.gallery}
+        aria-labelledby="salon-gallery-title"
+      >
+        <div className={styles.galleryHeader}>
+          <p className={styles.label}>
+            GALLERY
+          </p>
+
+          <h2
+            id="salon-gallery-title"
+            className={styles.galleryTitle}
+          >
+            INSIDE MOOD.
+          </h2>
+        </div>
+
+        <div className={styles.galleryGrid}>
+          {salon.gallery.map((image) => (
+            <div
+              key={image.src}
+              className={styles.galleryItem}
+            >
+              <EditorialImage
+                image={image}
+                sizes="(min-width: 900px) 50vw, 100vw"
+                className={styles.galleryImage}
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section className={styles.details}>
         <div className={styles.detailBlock}>
           <p className={styles.label}>

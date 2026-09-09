@@ -48,6 +48,35 @@ describe("SalonDetailPage", () => {
     ).toBeInTheDocument();
   });
 
+  it("renders the salon gallery with descriptive image alternatives", async () => {
+    const page = await SalonDetailPage({
+      params: Promise.resolve({
+        slug: "shibuya",
+      }),
+    });
+
+    render(page);
+
+    expect(
+      screen.getByRole("heading", {
+        level: 2,
+        name: "INSIDE MOOD.",
+      }),
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByAltText(
+        "コンクリートとメタル素材を使ったMOOD. SHIBUYAの架空セット面",
+      ),
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByAltText(
+        "ハイトーンスタイルをイメージしたMOOD. SHIBUYAの架空ビジュアル",
+      ),
+    ).toBeInTheDocument();
+  });
+
   it("uses the Next.js not-found response for an unknown salon", async () => {
     await expect(
       SalonDetailPage({
