@@ -1,0 +1,70 @@
+.page {
+  width: min(
+    calc(100% - (var(--page-gutter) * 2)),
+    var(--max-width)
+  );
+  margin-inline: auto;
+}
+
+.hero {
+  padding: 7rem 0 5rem;
+}
+
+.categoryNav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.6rem;
+  padding: 1.5rem 0 3rem;
+  border-top: 1px solid var(--color-silver);
+  border-bottom: 1px solid var(--color-silver);
+}
+
+.categoryLink {
+  padding: 0.5rem 0;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  line-height: 1;
+}
+
+.sections {
+  display: grid;
+}
+
+.note {
+  display: grid;
+  gap: 1.5rem;
+  padding: 5rem 0 7rem;
+  border-top: 1px solid var(--color-silver);
+}
+
+.noteLabel {
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+}
+
+.noteText {
+  max-width: 44rem;
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 2;
+}
+
+@media (min-width: 900px) {
+  .hero {
+    padding: 10rem 0 7rem;
+  }
+
+  .categoryNav {
+    justify-content: space-between;
+    padding: 2rem 0 4rem;
+  }
+
+  .note {
+    grid-template-columns: 0.5fr 1.5fr auto;
+    align-items: start;
+    gap: 3rem;
+    padding: 7rem 0 9rem;
+  }
+}
