@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 import { SiteHeader } from "./SiteHeader";
 
 describe("SiteHeader", () => {
-  it("shows the MOOD. home link and RESERVE navigation", () => {
+  it("shows the MOOD. home link and primary navigation", () => {
     render(<SiteHeader />);
 
     expect(
@@ -13,6 +13,10 @@ describe("SiteHeader", () => {
 
     expect(
       screen.getAllByRole("link", { name: "RESERVE" }).length,
+    ).toBeGreaterThan(0);
+
+    expect(
+      screen.getAllByRole("link", { name: "COUPON" }).length,
     ).toBeGreaterThan(0);
   });
 

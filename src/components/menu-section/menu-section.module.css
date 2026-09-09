@@ -1,0 +1,94 @@
+.section {
+  display: grid;
+  gap: 2.5rem;
+  padding: 4rem 0;
+  border-top: 1px solid var(--color-silver);
+}
+
+.heading {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(2.6rem, 7vw, 5.5rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.concept {
+  max-width: 34rem;
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.9;
+}
+
+.list {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem;
+  padding: 1.6rem 0;
+  border-top: 1px solid var(--color-silver);
+}
+
+.item:last-child {
+  border-bottom: 1px solid var(--color-silver);
+}
+
+.itemText {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.itemName {
+  margin: 0;
+  font-family: var(--font-serif), serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.description {
+  max-width: 42rem;
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.8;
+}
+
+.price {
+  margin: 0;
+  white-space: nowrap;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+@media (min-width: 900px) {
+  .section {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr);
+    gap: 5rem;
+    padding: 6rem 0;
+  }
+
+  .heading {
+    align-content: start;
+    position: sticky;
+    top: 7rem;
+  }
+}
