@@ -1,0 +1,104 @@
+.page {
+  width: min(
+    calc(100% - (var(--page-gutter) * 2)),
+    var(--content-max)
+  );
+  margin-inline: auto;
+}
+
+.hero {
+  padding: 7rem 0 5rem;
+}
+
+.intro {
+  display: grid;
+  gap: 1.5rem;
+  padding: 2rem 0 5rem;
+  border-top: 1px solid var(--color-silver);
+}
+
+.introLabel {
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+}
+
+.introText {
+  max-width: 42rem;
+  margin: 0;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 2;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  padding-bottom: 6rem;
+}
+
+.note {
+  display: grid;
+  gap: 2rem;
+  padding: 5rem 0 7rem;
+  border-top: 1px solid var(--color-silver);
+}
+
+.noteLabel {
+  margin: 0 0 0.8rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+}
+
+.noteTitle {
+  margin: 0;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.noteContent {
+  display: grid;
+  gap: 1.5rem;
+  align-content: start;
+}
+
+.noteText {
+  max-width: 42rem;
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 2;
+}
+
+@media (min-width: 760px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .hero {
+    padding: 10rem 0 7rem;
+  }
+
+  .intro {
+    grid-template-columns: 0.6fr 1.4fr;
+    gap: 4rem;
+    padding: 3rem 0 7rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.8rem;
+    padding-bottom: 8rem;
+  }
+
+  .note {
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 5rem;
+    padding: 7rem 0 9rem;
+  }
+}

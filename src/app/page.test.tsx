@@ -23,8 +23,48 @@ describe("Home", () => {
 
     expect(
       screen.getByRole("link", {
-        name: /RESERVE/,
+        name: "RESERVE",
       }),
     ).toHaveAttribute("href", "/reserve");
+
+    expect(
+      screen.getByRole("heading", {
+        name: "OUR SERVICES",
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("HAIR REPAIR"),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
+        name: "OUR SALONS",
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("SHIBUYA"),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
+        name: "SPECIAL OFFERS",
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("CUT + COLOR + CARE"),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", {
+        name: /VIEW MENU/i,
+      }),
+    ).toHaveAttribute("href", "/menu");
+    expect(
+      screen.getByRole("link", {
+        name: /VIEW SALONS/i,
+      }),
+    ).toHaveAttribute("href", "/salon");
+    expect(
+      screen.getByRole("link", {
+        name: /VIEW COUPONS/i,
+      }),
+    ).toHaveAttribute("href", "/coupon");
   });
 });
