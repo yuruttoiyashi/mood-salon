@@ -10,6 +10,7 @@ const pageStylePaths = [
   "src/app/style/style.module.css",
   "src/app/staff/staff.module.css",
   "src/app/product/product.module.css",
+  "src/app/reserve/reserve.module.css",
 ];
 
 const readProjectFile = (path: string) =>
