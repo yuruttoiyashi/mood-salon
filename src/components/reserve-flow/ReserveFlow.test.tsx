@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 import { ReserveFlow } from "./ReserveFlow";
@@ -11,9 +11,25 @@ describe("ReserveFlow", () => {
 
     await user.click(screen.getByRole("button", { name: "NEXT" }));
 
-    expect(screen.getByText("店舗を選択してください。")).toBeInTheDocument();
-    expect(screen.getByText("メニューを選択してください。")).toBeInTheDocument();
-    expect(screen.getByText("希望日を選択してください。")).toBeInTheDocument();
+    expect(document.getElementById("salon-error")).toHaveTextContent(
+      "店舗を選択してください。",
+    );
+    expect(document.getElementById("menu-error")).toHaveTextContent(
+      "メニューを選択してください。",
+    );
+    expect(document.getElementById("preferred-date-error")).toHaveTextContent(
+      "希望日を選択してください。",
+    );
+    const errorSummary = screen.getByRole("alert");
+    expect(
+      within(errorSummary).getByText("店舗を選択してください。"),
+    ).toBeInTheDocument();
+    expect(
+      within(errorSummary).getByText("メニューを選択してください。"),
+    ).toBeInTheDocument();
+    expect(
+      within(errorSummary).getByText("希望日を選択してください。"),
+    ).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "1. SELECT" })).toBeInTheDocument();
   });
 
@@ -57,6 +73,9 @@ describe("ReserveFlow", () => {
     expect(screen.getByText("2099-12-31")).toBeInTheDocument();
     expect(screen.getByText("佐藤 ゆみ")).toBeInTheDocument();
     expect(screen.getByText("yumi@example.com")).toBeInTheDocument();
+    expect(
+      screen.getByText("このサイトはポートフォリオ用デモです。実際の予約は送信されません。"),
+    ).toBeInTheDocument();
 
     await user.click(screen.getByRole("button", { name: "BACK" }));
 
@@ -67,6 +86,9 @@ describe("ReserveFlow", () => {
     await user.click(screen.getByRole("button", { name: "COMPLETE" }));
 
     expect(screen.getByText("予約情報は送信・保存されていません")).toBeInTheDocument();
+    expect(
+      screen.getByText("このサイトはポートフォリオ用デモです。実際の予約は送信されません。"),
+    ).toBeInTheDocument();
 
     await user.click(screen.getByRole("button", { name: "RESET" }));
 

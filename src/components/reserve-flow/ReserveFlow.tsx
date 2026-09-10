@@ -2,6 +2,7 @@
 
 import type { ChangeEvent } from "react";
 import { useEffect, useRef, useState } from "react";
+import { DemoNotice } from "@/components/demo-notice/DemoNotice";
 import { menuItems } from "@/data/menus";
 import { salons, type SalonSlug } from "@/data/salons";
 import { staffMembers } from "@/data/staff";
@@ -95,7 +96,14 @@ export function ReserveFlow() {
             1. SELECT
           </h2>
           {Object.keys(errors).length > 0 ? (
-            <div className={styles.errorSummary} role="alert"><p>入力内容を確認してください。</p></div>
+            <div className={styles.errorSummary} role="alert">
+              <p>入力内容を確認してください。</p>
+              <ul>
+                {Object.values(errors).map((error) => (
+                  <li key={error}>{error}</li>
+                ))}
+              </ul>
+            </div>
           ) : null}
           <div className={styles.fields}>
             <div className={styles.field}>
@@ -167,6 +175,7 @@ export function ReserveFlow() {
       {step === 3 ? (
         <>
           <h2 ref={headingRef} id="reserve-step-heading" className={styles.heading} tabIndex={-1}>3. CONFIRM</h2>
+          <DemoNotice context="reservation" />
           <dl className={styles.confirmation}>
             <div><dt>店舗</dt><dd>{selectedSalon?.name ?? "未指定"}</dd></div>
             <div><dt>メニュー</dt><dd>{selectedMenu?.name ?? "未指定"}</dd></div>
@@ -191,6 +200,7 @@ export function ReserveFlow() {
             <p>デモの確認が完了しました。</p>
             <p>予約情報は送信・保存されていません</p>
           </div>
+          <DemoNotice context="reservation" />
           <div className={styles.actions}><button type="button" onClick={handleReset}>RESET</button></div>
         </>
       ) : null}
