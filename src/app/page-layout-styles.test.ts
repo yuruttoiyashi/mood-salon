@@ -7,6 +7,7 @@ const pageStylePaths = [
   "src/app/coupon/coupon.module.css",
   "src/app/salon/salon.module.css",
   "src/app/salon/[slug]/salon-detail.module.css",
+  "src/app/style/style.module.css",
 ];
 
 const readProjectFile = (path: string) =>
